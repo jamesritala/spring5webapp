@@ -6,6 +6,7 @@ import java.util.Set;
 
 /**
  * Created by jt on 5/16/17.
+ * Modified by jr - Added new fields just to see the behavior of JPA on
  */
 @Entity
 public class Author {
@@ -15,6 +16,9 @@ public class Author {
     private Long id;
     private String firstName;
     private String lastName;
+    private String gender;
+    private String address;
+
 
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books  = new HashSet<>();
@@ -63,5 +67,21 @@ public class Author {
 
     public void setBooks(Set<Book> books) {
         this.books = books;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
